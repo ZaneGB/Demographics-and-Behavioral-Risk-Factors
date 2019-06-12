@@ -1,2 +1,4 @@
-# HW16-D3
-Data Journalism &amp; D3
+In this Data Driven Document (D3), We explore certain associations between demographics and behavioral risk factors using survey data collected from the American Community Survey (ACS) and the Behavioral Risk Factor Surveillance System (BRFSS) during the year 2014. Each marker represents an individual state in the USA.
+
+The largest correlation we observed is between smoking and poverty rate. The improverished are much more likely to smoke than their richer brethren (corr = 0.66). Similarly the lower a state's household income, the higher the rate of obesity (corr = 0.65). Wealthier folks (presumably with higher educational attainment) afford themselves better nutrition. Overall the higher a state's median household income, the lower the prevalence of behavioral risk factors.
+Conversely there is less of a relationship between age and the various risk factors we examined. Correlations range from 0.01 (age vs. smoking) to 0.39 (age vs. lacking healthcare). 
