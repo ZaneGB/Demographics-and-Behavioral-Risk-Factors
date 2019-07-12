@@ -51,15 +51,15 @@ d3.csv("assets/data/data.csv")
   var yMax;
 
 //   // Initialize tooltip
-//     var toolTip = d3.tip()
-//       .attr("class", "tooltip")
-//       .offset([80, -60])
-//       .html(function (d) {         
-//         return (`${d.state}<br>Poverty: ${d.poverty}<br>Lacks Healthcare: ${d.healthcare}`);
-//     });
+  var toolTip = d3.tip()
+     .attr("class", "tooltip")
+     .offset([80, -60])
+     .html(function (d) {  
+       return (`${d.state}<br>Poverty: ${d.poverty}<br>Lacks Healthcare: ${d.healthcare}`);
+  });
     
 //   // Create tooltip
-//   chartGroup.call(toolTip);
+  chartGroup.call(toolTip);
 
   // Find Min and Max values in healthData, setting aside some extra space to prettify graph
   
@@ -86,16 +86,18 @@ d3.csv("assets/data/data.csv")
   // set the domains for the axes
     xScale.domain([xMin, xMax]);
     yScale.domain([yMin, yMax]);
-  // Initialize tooltip
-    var toolTip = d3.tip()
-      .attr("class", "tooltip")
-      .offset([80, -60])
-      .html(function (d) {         
-        return (`${d.state}<br>Poverty: ${d.poverty}<br>Lacks Healthcare: ${d.healthcare}`);
-    });
-    
-  // Create tooltip
-  chartGroup.call(toolTip);
+  // // Initialize tooltip
+  //   var toolTip = d3.tip()
+  //     .attr("class", "tooltip")
+  //     .offset([80, -60])
+  //     .html(function (d) {         
+  //       return (`${d.state}<br>Poverty: ${d.poverty}<br>Lacks Healthcare: ${d.healthcare}`);
+  //   });
+  // console.log("test");
+  // // Create tooltip
+  // chartGroup.call(toolTip);
+  // console.log("test2");
+
   // create chart
     chartGroup.selectAll("circle")
         .data(healthData)
@@ -112,13 +114,13 @@ d3.csv("assets/data/data.csv")
         .attr("opacity", 0.5)
         // display tooltip on mouseover
         .on("mouseover", function (d) {
-            toolTip.show(d);
+          return toolTip.show(d, this);
         })
         // hide tooltip on mouseout
         .on("mouseout", function (d, i) {
-            toolTip.hide(d);
-        })
-
+          return toolTip.hide(d);
+        });
+        console.log("test");
   // create state abbreviations for bubbles
     chartGroup.selectAll("text")
         .data(healthData)
@@ -137,14 +139,15 @@ d3.csv("assets/data/data.csv")
         .attr("text-anchor", "middle")
         .attr("class","stateText");
 
-      // display tooltip on mouseover
-        // .on("mouseover", function (d) {
-        //     toolTip.show(d);
-        // })
-      // hide tooltip on mouseout
-        // .on("mouseout", function (d, i) {
-        //     toolTip.hide(d);
-        // })
+  //     // display tooltip on mouseover
+  //       .on("mouseover", function (d) {
+  //           toolTip.show(d,this);
+  //       })
+  //     // hide tooltip on mouseout
+  //       .on("mouseout", function (d, i) {
+  //           toolTip.hide(d);
+  //       });
+  // console.log("test3");
 
   // create x-axis
     chartGroup.append("g")
